@@ -1,15 +1,29 @@
-# bloomy-yearbook-lambda
+Here’s a clean, well-formatted `README.md`:
 
-Create a simple Maven project on your computer
-Create a folder called bloomy-yearbook-lambda and inside it create this structure:
-textbloomy-yearbook-lambda/
+```markdown
+# Bloomy Yearbook Lambda
+
+A simple AWS Lambda function that serves the **Bloomy Technologies – Class of 2026 Yearbook** page.
+
+---
+
+## 1. Create the Project
+
+Create a folder called `bloomy-yearbook-lambda` with the following structure:
+
+```text
+bloomy-yearbook-lambda/
 ├── pom.xml
 └── src/
     └── main/
         └── java/
             └── Application.java
-pom.xml (copy exactly):
-XML<?xml version="1.0" encoding="UTF-8"?>
+```
+
+### `pom.xml`
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -60,52 +74,90 @@ XML<?xml version="1.0" encoding="UTF-8"?>
         </plugins>
     </build>
 </project>
-Application.java → paste the full class I gave you earlier (the one with the complete HTML).
-2. Build the JAR
+```
+
+### `Application.java`
+
+Paste the full Lambda-ready Java class (the one containing the complete HTML yearbook page) into:
+
+```
+src/main/java/Application.java
+```
+
+---
+
+## 2. Build the JAR
+
 Open a terminal in the project folder and run:
-Bashmvn clean package
-You will get a file here:
 
+```bash
+mvn clean package
+```
+
+After a successful build you will find the deployment artifact at:
+
+```
 target/yearbook-lambda-1.0.0.jar
-This is the file you will upload to Lambda.
+```
 
-3. Create the Lambda function in AWS Console
+This is the file you will upload to AWS Lambda.
 
-Go to AWS Lambda → Create function
-Choose Author from scratch
-Function name: bloomy-yearbook
-Runtime: Java 17 or Java 21
-Architecture: x86_64
-Click Create function
+---
 
-4. Upload the code
+## 3. Create the Lambda Function (AWS Console)
 
-In the Lambda function page → Code tab
-Click Upload from → .zip or .jar file
-Select the yearbook-lambda-1.0.0.jar you built
-Click Save
+1. Go to **AWS Lambda** → **Create function**
+2. Choose **Author from scratch**
+3. Configure:
+   - **Function name**: `bloomy-yearbook`
+   - **Runtime**: Java 17 or Java 21
+   - **Architecture**: `x86_64`
+4. Click **Create function**
 
-5. Set the Handler
+---
 
-Go to Runtime settings → Edit
-Handler:textApplication::handleRequest
-Click Save
+## 4. Upload the Code
 
-6. Create the public URL (API Gateway)
+1. In the Lambda function page, open the **Code** tab
+2. Click **Upload from** → **.zip or .jar file**
+3. Select `yearbook-lambda-1.0.0.jar`
+4. Click **Save**
 
-In the Lambda function page, go to the Configuration tab → Triggers
-Click Add trigger
-Select API Gateway
-Choose:
-Create a new API
-API type: HTTP API
-Security: Open (for easy testing)
+---
 
-Click Add
+## 5. Set the Handler
 
-After a few seconds you will see an API endpoint URL (something like https://xxxxxx.execute-api.region.amazonaws.com).
+1. Go to **Runtime settings** → **Edit**
+2. Set the **Handler** to:
 
-7. Test it
-Open the API endpoint URL in your browser.
+   ```
+   Application::handleRequest
+   ```
 
-You should see the full Bloomy Technologies Class of 2026 Yearbook page.
+3. Click **Save**
+
+---
+
+## 6. Create a Public URL (API Gateway)
+
+1. In the Lambda function page, go to the **Configuration** tab → **Triggers**
+2. Click **Add trigger**
+3. Select **API Gateway**
+4. Configure:
+   - Create a new API
+   - API type: **HTTP API**
+   - Security: **Open** (for easy testing)
+5. Click **Add**
+
+After a few seconds you will see an **API endpoint** URL  
+(example: `https://xxxxxx.execute-api.region.amazonaws.com`)
+
+---
+
+## 7. Test It
+
+Open the API endpoint URL in your browser.  
+You should see the full **Bloomy Technologies Class of 2026 Yearbook** page.
+```
+
+You can copy the entire block above and save it as `README.md` in the root of your project.
