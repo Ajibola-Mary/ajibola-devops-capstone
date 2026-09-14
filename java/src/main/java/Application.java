@@ -50,8 +50,8 @@ public class Application implements RequestHandler<APIGatewayProxyRequestEvent, 
             width: 58px;
             height: 58px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #c7d2fe, #e9d5ff);
-            border: 3px solid #ffffff;
+            background: linear-gradient(135deg, #4a67db, #e9d5ff);
+            border: 3px solid #711686;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -217,7 +217,7 @@ public class Application implements RequestHandler<APIGatewayProxyRequestEvent, 
 
     <div class="yearbook-container">
         <h2 class="yearbook-header-title">Linux Cloud DevOps • Class of 2026</h2>
-        <p class="yearbook-subtitle">Celebrating the graduates who turned YAML, Docker &amp; pipelines into muscle memory</p>
+        <p class="yearbook-subtitle">Celebrating the squad that turned “it works on my machine” into “it is live in production”</p>
 
         <div class="yearbook-grid">
 
@@ -229,17 +229,17 @@ public class Application implements RequestHandler<APIGatewayProxyRequestEvent, 
                 </div>
                 <h3 class="name">Akeem Oyebanji</h3>
                 <div class="superlative">Solutions Architect</div>
-                <p class="quote">"I don't just teach DevOps — I make sure you can defend your pipeline in production."</p>
+                <p class="quote">"I don't just teach DevOps — I make complex concepts easy to understand so you can confidently defend your projects..."</p>
             </div>
 
             <!-- Abraham -->
             <div class="trainee-card">
                 <div class="photo-box">
-                    <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Abraham&backgroundColor=c0aede" alt="Abraham">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E35AQH2jyngV-OEjw/profile-framedphoto-shrink_800_800/B4EaCbC.wtIcAY-/0/1789307645481?e=1789934400&v=beta&t=qBgSVBFEQQm6U13ITctFiq4Xa6oKC1NKfOCucCMGSKw" alt="Abraham">
                 </div>
                 <h3 class="name">Abraham</h3>
                 <div class="superlative">Platform Engineer Intern</div>
-                <p class="quote">"It worked perfectly in my local Docker container. The cloud environment must be wrong."</p>
+                <p class="quote">"people feel safe to ask questions, make mistakes, and experiment, especially for beginners."</p>
             </div>
 
             <!-- Oluwakemi -->
@@ -249,7 +249,7 @@ public class Application implements RequestHandler<APIGatewayProxyRequestEvent, 
                 </div>
                 <h3 class="name">Oluwakemi</h3>
                 <div class="superlative">Infrastructurе Engineer Intern</div>
-                <p class="quote">"If it's worth doing twice, it's worth spending six hours writing a script to automate it."</p>
+                <p class="quote">"The learning environment is calm, welcoming, and supportive."</p>
             </div>
 
             <!-- Mary -->
@@ -259,7 +259,7 @@ public class Application implements RequestHandler<APIGatewayProxyRequestEvent, 
                 </div>
                 <h3 class="name">Mary</h3>
                 <div class="superlative">Cloud Architect Intern</div>
-                <p class="quote">"The build failed again? Good. That means I get to fix it properly this time."</p>
+                <p class="quote">"Grow your skills with Bloomy—supportive learning that is accessible anywhere, anytime.."</p>
             </div>
 
             <!-- Oluwatosin -->
@@ -269,7 +269,7 @@ public class Application implements RequestHandler<APIGatewayProxyRequestEvent, 
                 </div>
                 <h3 class="name">Oluwatosin</h3>
                 <div class="superlative">Cloud Engineer Intern</div>
-                <p class="quote">"Keep calm, check the build logs, and always remember to validate your YAML indentation."</p>
+                <p class="quote">"Keep learning, keep growing, and keep pushing the boundaries of what's possible."</p>
             </div>
 
             <!-- Chukwunonso -->
@@ -279,7 +279,7 @@ public class Application implements RequestHandler<APIGatewayProxyRequestEvent, 
                 </div>
                 <h3 class="name">Chukwunonso</h3>
                 <div class="superlative">Cloud Developer Intern</div>
-                <p class="quote">"I don't just deploy code — I deploy confidence. #OpenToWork"</p>
+                <p class="quote">"letting you study from anywhere at your own convenience..."</p>
             </div>
 
             <!-- Samuel (fixed spelling) -->
@@ -289,7 +289,7 @@ public class Application implements RequestHandler<APIGatewayProxyRequestEvent, 
                 </div>
                 <h3 class="name">Samuel</h3>
                 <div class="superlative">DevOps Intern</div>
-                <p class="quote">"Terraform plan looks good. What could possibly go wrong in apply?"</p>
+                <p class="quote">"Instructors at Bloomy Technologies are highly experienced and exceptional at what they do"</p>
             </div>
 
             <!-- Daniel -->
@@ -299,7 +299,7 @@ public class Application implements RequestHandler<APIGatewayProxyRequestEvent, 
                 </div>
                 <h3 class="name">Daniel</h3>
                 <div class="superlative">SRE Intern</div>
-                <p class="quote">"The logs never lie. They just speak a language only the patient understand."</p>
+                <p class="quote">"Bloomy is an excellent choice for beginners..."</p>
             </div>
 
         </div>
@@ -307,7 +307,7 @@ public class Application implements RequestHandler<APIGatewayProxyRequestEvent, 
 
     <div class="footer-marquee-container">
         <marquee behavior="scroll" direction="left">
-            © 2026 Bloomy Technologies • Java Application Status: <strong>ONLINE</strong> • Class of 2026 Graduates — Congratulations! • Powered by profAkymbo
+            Java Application Status: <strong>ONLINE</strong> • From broken code builds to live apps — we made it — Congratulations! • Powered by profAkymbo © 2026 
         </marquee>
     </div>
 
