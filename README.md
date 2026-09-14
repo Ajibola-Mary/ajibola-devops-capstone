@@ -1,7 +1,7 @@
 Here’s a clean, well-formatted `README.md`:
 
 ```markdown
-# Bloomy Yearbook Lambda
+# Bloomy Yearbook Lambda project
 
 A simple AWS Lambda function that serves the **Bloomy Technologies – Class of 2026 Yearbook** page.
 
