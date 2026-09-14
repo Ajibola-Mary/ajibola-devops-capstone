@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 Here’s a clean, well-formatted `README.md`:
 
 ```markdown
@@ -161,6 +159,3 @@ After a few seconds you will see an **API endpoint** URL
 Open the API endpoint URL in your browser.  
 You should see the full **Bloomy Technologies Class of 2026 Yearbook** page.
 ```
-
-You can copy the entire block above and save it as `README.md` in the root of your project.
->>>>>>> be1997cf53f224ac8a80d40f87094f9b3f4fe66d
