@@ -1,0 +1,68 @@
+- name: Configure capstone EC2 server
+  hosts: webserver
+  become: true
+  tasks:
+    - name: Update package cache
+      ansible.builtin.dnf:
+        update_cache: true
+
+    - name: Install Docker
+      ansible.builtin.dnf:
+        name: docker
+        state: present
+
+    - name: Start and enable Docker
+      ansible.builtin.systemd:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Create Docker CLI plugins directory
+      ansible.builtin.file:
+        path: /usr/libexec/docker/cli-plugins
+        state: directory
+        mode: '0755'
+
+    - name: Install Docker Compose plugin
+      ansible.builtin.get_url:
+        url: https://github.com/docker/compose/releases/download/v5.5.0/docker-compose-linux-x86_64
+        dest: /usr/libexec/docker/cli-plugins/docker-compose
+        mode: '0755'
+
+    - name: Remove old Docker Buildx plugin
+      ansible.builtin.file:
+        path: /usr/libexec/docker/cli-plugins/docker-buildx
+        state: absent
+
+    - name: Install Docker Buildx plugin
+      ansible.builtin.get_url:
+        url: https://github.com/docker/buildx/releases/download/v0.17.1/buildx-v0.17.1.linux-amd64
+        dest: /usr/libexec/docker/cli-plugins/docker-buildx
+        mode: '0755'
+
+    - name: Create application directory
+      ansible.builtin.file:
+        path: /opt/capstone
+        state: directory
+        mode: '0755'
+
+    - name: Transfer Docker Compose file
+      ansible.builtin.copy:
+        src: ../docker-compose.yml
+        dest: /opt/capstone/docker-compose.yml
+        mode: '0644'
+
+    - name: Transfer portfolio application
+      ansible.builtin.copy:
+        src: ../myportfolio
+        dest: /opt/capstone/
+
+    - name: Transfer Java application
+      ansible.builtin.copy:
+        src: ../java
+        dest: /opt/capstone/
+
+    - name: Deploy applications with Docker Compose
+      ansible.builtin.command:
+        cmd: docker compose up -d --build
+        chdir: /opt/capstone

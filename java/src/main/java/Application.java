@@ -1,15 +1,25 @@
-import com.amazonaws.services.lambda.runtime.Context;
-import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
-import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpServer;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
 
-public class Application implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
-    @Override
-    public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent request, Context context) {
+public class Application {
+
+    public static void main(String[] args) throws IOException {
+    HttpServer server = HttpServer.create(new InetSocketAddress(8081), 0);
+
+    server.createContext("/", Application::handleRequest);
+
+    server.setExecutor(null);
+    server.start();
+
+    System.out.println("Java application running on port 8081");
+}
+
+private static void handleRequest(HttpExchange exchange) throws IOException {
 
         String html = """
                 <!DOCTYPE html>
@@ -315,16 +325,13 @@ public class Application implements RequestHandler<APIGatewayProxyRequestEvent, 
 </html>
                 """;
 
-        Map<String, String> headers = new HashMap<>();
-        headers.put("Content-Type", "text/html; charset=UTF-8");
-        // Optional: allow CORS if needed
-        headers.put("Access-Control-Allow-Origin", "*");
+                byte[] response = html.getBytes("UTF-8");
 
-        APIGatewayProxyResponseEvent response = new APIGatewayProxyResponseEvent();
-        response.setStatusCode(200);
-        response.setHeaders(headers);
-        response.setBody(html);
+        exchange.getResponseHeaders().set("Content-Type", "text/html; charset=UTF-8");
+        exchange.sendResponseHeaders(200, response.length);
 
-        return response;
+        try (OutputStream os = exchange.getResponseBody()) {
+            os.write(response);
+        } 
     }
 }

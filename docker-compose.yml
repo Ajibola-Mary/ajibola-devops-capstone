@@ -1,0 +1,12 @@
+services:
+  portfolio:
+    build: ./myportfolio
+    ports:
+      - "80:80"
+
+  java:
+    build:
+      context: ./java
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"

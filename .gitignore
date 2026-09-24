@@ -58,3 +58,14 @@ logs/
 credentials
 aws-credentials
 .aws/
+
+# Terraform state
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/.terraform/
+
+# Generated Ansible inventory
+ansible/inventory.ini
+
+# Local backup
+java/Application-Lambda-backup.java
