@@ -46,5 +46,16 @@ pipeline {
             }
         }
 
+        stage('Create Ansible Inventory') {
+            steps {
+                sh '''
+                    cat > ansible/inventory.ini <<EOF
+[webserver]
+${EC2_PUBLIC_IP} ansible_user=ec2-user
+EOF
+                '''
+            }
+        }
+
     }
 }
