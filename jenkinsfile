@@ -15,6 +15,20 @@ pipeline {
             }
         }
 
+stage('Test AWS Credentials') {
+    steps {
+        withCredentials([
+            string(credentialsId: 'capstone-aws-access-key', variable: 'AWS_ACCESS_KEY_ID'),
+            string(credentialsId: 'capstone-aws-secret-key', variable: 'AWS_SECRET_ACCESS_KEY')
+        ]) {
+            sh '''
+                export AWS_DEFAULT_REGION=eu-west-2
+                aws sts get-caller-identity
+            '''
+        }
+    }
+}
+
         stage('Terraform') {
             steps {
                 withCredentials([
