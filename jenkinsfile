@@ -15,5 +15,20 @@ pipeline {
             }
         }
 
+        stage('Terraform') {
+            steps {
+                withCredentials([
+                    string(credentialsId: 'capstone-aws-access-key', variable: 'AWS_ACCESS_KEY_ID'),
+                    string(credentialsId: 'capstone-aws-secret-key', variable: 'AWS_SECRET_ACCESS_KEY')
+                ]) {
+                    sh '''
+                        export AWS_DEFAULT_REGION=eu-west-2
+                        terraform -chdir=terraform init
+                        terraform -chdir=terraform apply -auto-approve
+                    '''
+                }
+            }
+        }
+
     }
 }
