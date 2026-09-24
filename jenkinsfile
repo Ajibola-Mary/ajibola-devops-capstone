@@ -30,5 +30,21 @@ pipeline {
             }
         }
 
+        stage('Get EC2 IP') {
+            steps {
+                withCredentials([
+                    string(credentialsId: 'capstone-aws-access-key', variable: 'AWS_ACCESS_KEY_ID'),
+                    string(credentialsId: 'capstone-aws-secret-key', variable: 'AWS_SECRET_ACCESS_KEY')
+                ]) {
+                    script {
+                        env.EC2_PUBLIC_IP = sh(
+                            script: 'terraform -chdir=terraform output -raw ec2_public_ip',
+                            returnStdout: true
+                        ).trim()
+                    }
+                }
+            }
+        }
+
     }
 }
