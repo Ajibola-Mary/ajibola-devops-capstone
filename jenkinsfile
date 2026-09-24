@@ -57,5 +57,18 @@ EOF
             }
         }
 
+        stage('Deploy with Ansible') {
+            steps {
+                sshagent(credentials: ['capstone-ec2-ssh']) {
+                    sh '''
+                        ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook \
+                            -i ansible/inventory.ini \
+                            ansible/playbook.yml
+                    '''
+                }
+            }
+        }
+
     }
 }
+
