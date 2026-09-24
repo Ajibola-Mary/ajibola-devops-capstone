@@ -22,6 +22,9 @@ stage('Test AWS Credentials') {
             string(credentialsId: 'capstone-aws-secret-key', variable: 'AWS_SECRET_ACCESS_KEY')
         ]) {
             sh '''
+                echo "Access key ends: ${AWS_ACCESS_KEY_ID: -4}"
+                echo "Secret key ends: ${AWS_SECRET_ACCESS_KEY: -4}"
+
                 export AWS_DEFAULT_REGION=eu-west-2
                 aws sts get-caller-identity
             '''
